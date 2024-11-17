@@ -12,8 +12,6 @@ all:
 	rm -rf *_container;
 	rm -rf tar_dir;
 	#INFO: Compile application
-	rm -rf common_include;
-	cp -r ~/erlang/common_include .
 	rebar3 compile;
 	rebar3 release;
 	rebar3 as prod tar;
@@ -38,8 +36,6 @@ clean:
 	rm -rf *_container;
 	rm -rf tar_dir;
 	#INFO: Compile application
-	rm -rf common_include;
-	cp -r ~/erlang/common_include .
 	rebar3 compile;
 	rm -rf _build;
 	rm -rf rebar.lock
@@ -59,8 +55,6 @@ eunit:
 #INFO: Creating eunit test code using test_ebin dir;
 	mkdir test_ebin;
 	erlc -o test_ebin test/*.erl;
-	rm -rf common_include;
-	cp -r ~/erlang/common_include .
 	rebar3 release;
 	rebar3 as prod tar;
 	rm -rf tar_dir;
